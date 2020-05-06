@@ -1,6 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+
 import Autocomplete from "./Autocomplete/Autocomplete.jsx";
+
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -19,8 +22,7 @@ class Main extends React.Component {
 	suggestions = value=>{
 	   return fetch(`http://api.darincardin.com/php/orders/search.php?value=${value}`, {method:"GET"});
 	}
-	
-	
+		
 	render = ()=>{
 		return (
 		<div style={{width:'300px', margin:'20px auto'}}>
@@ -35,3 +37,4 @@ class Main extends React.Component {
 
 ReactDOM.render( <Main />, document.getElementById('app'));
 
+//	

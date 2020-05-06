@@ -23,14 +23,19 @@ class Autocomplete extends React.Component{
 	
 	handleRequest = (value) =>{
 		this.setState({ loading:true });
-	    this.props.getSuggestions(value).then(res => res.json())
-		.then(res =>{
-			this.setState({ suggestions: res.data, loading:false })
-		})
-		.catch( err =>{
-			this.setState({ suggestions: ["An error occurred."], loading:false })
-			throw err;
-		})	
+		
+		if(this.cancel) clearTimeout(this.cancel);
+		
+		this.cancel = setTimeout( ()=>{
+			this.props.getSuggestions(value).then(res => res.json())
+			.then(res =>{
+				this.setState({ suggestions: res.data, loading:false })
+			})
+			.catch( err =>{
+				this.setState({ suggestions: ["An error occurred."], loading:false })
+			})	
+
+		}, 300 );
 	}
 	
 	close= ()=>{
@@ -42,18 +47,14 @@ class Autocomplete extends React.Component{
 			<div className="autocomplete" >
 				<div className="input" >
 					<input name={this.props.name} placeholder="Search..." className='form-control' type="text" value={this.props.value} onChange={this.onChange}/>
-					
-					{ this.state.loading ? 
-					    <i className="glyphicon glyphicon-cog spin"></i>  : 
-						<i className="glyphicon glyphicon-search"></i>  	 
+					{   
+						this.state.loading ?
+						<i className="glyphicon glyphicon-cog spin"></i>  :	 
+						<i className="glyphicon glyphicon-search"></i>   
 					}
-
-					
-
-					
 				</div>
 				
-				{this.state.suggestions.length>0 &&
+				{ this.state.suggestions.length>0 &&
 					<div>
 						<div className="overlay" onClick={this.close}></div>
 						<div className="suggestions">

@@ -1,9 +1,6 @@
 const path = require('path');
 var webpack = require('webpack');
 
-
-
-
 module.exports = (env) => {
 	
 
@@ -15,6 +12,12 @@ module.exports = (env) => {
 		path: path.resolve(__dirname, 'dist'), 
 		filename: '[name].js',
 	  },
+	  plugins: [ 
+		new webpack.ProvidePlugin({  
+			$: "jquery", 	
+			jQuery: "jquery", 
+		})
+	  ],
 	  devServer: {
 		contentBase:  require('path').join(__dirname, "src"),
 		publicPath: '/',
@@ -33,8 +36,6 @@ module.exports = (env) => {
 					options: { name: '[name].[ext]',  outputPath: 'fonts/'} 
 				}
 		    }				
-			
-			
 		]
 	  }
 	}
