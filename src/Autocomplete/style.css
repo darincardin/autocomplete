@@ -1,0 +1,79 @@
+
+
+
+
+.autocomplete {
+	
+	position:relative;
+
+	input {
+		padding-right: 28px; 
+		z-index: 30;
+		position: relative;	
+	}
+	
+	i {
+		color: #b5b8bb;
+		position:absolute;
+		right: 10px;
+		top: 10px;
+		z-index: 31;
+		transition: color .3s;
+	}
+	
+	.suggestions {
+		z-index:25;
+		background: white;
+		min-width: 200px;
+		position: absolute;
+		border: 1px solid #828282;
+		box-shadow: 2px 2px 4px #b3b3b3;
+		padding: 15px 0px 5px 0;
+		border-radius: 5px;	
+
+		tr {
+			cursor: pointer;
+			background:transparent;
+			transition: all .3s;
+			td { padding: 0 10px; }
+		}
+		
+		tr:hover { 	background:#ffff0047; }
+		
+		i.glyphicon-cog{ 
+			color:gray; 
+			right: 5px;
+			top: 2px;		
+		}
+	}
+
+	table {width: 100%;	}
+	
+	
+ 	.spin {
+	  animation: spin 2s infinite linear;
+	}
+	
+
+	@keyframes spin {
+	  from {transform: rotate(0deg); }
+	  to {	transform: rotate(360deg);  }
+	}
+	
+	.overlay{
+		background:transparent;
+		position:fixed;
+		top:0;left:0;right:0;bottom:0;
+		z-index:21;
+	}
+}
+
+
+.autocomplete:hover i, .autocomplete:active i {
+	color: black;
+}
+	
+	
+	
+	
+	
