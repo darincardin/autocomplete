@@ -42,15 +42,21 @@ class Autocomplete extends React.Component{
 			<div className="autocomplete" >
 				<div className="input" >
 					<input name={this.props.name} placeholder="Search..." className='form-control' type="text" value={this.props.value} onChange={this.onChange}/>
-					<i className="glyphicon glyphicon-search"></i>
+					
+					{ this.state.loading ? 
+					    <i className="glyphicon glyphicon-cog spin"></i>  : 
+						<i className="glyphicon glyphicon-search"></i>  	 
+					}
+
+					
+
+					
 				</div>
 				
 				{this.state.suggestions.length>0 &&
 					<div>
 						<div className="overlay" onClick={this.close}></div>
 						<div className="suggestions">
-						
-							{ this.state.loading && <i className="glyphicon glyphicon-cog spin" ></i> }
 							<table>
 								<tbody>
 									{ this.state.suggestions.map( (r, i) =>  

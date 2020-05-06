@@ -30,7 +30,9 @@
 		box-shadow: 2px 2px 4px #b3b3b3;
 		padding: 15px 0px 5px 0;
 		border-radius: 5px;	
-
+		max-height: 150px;
+		overflow-y: scroll;
+		
 		tr {
 			cursor: pointer;
 			background:transparent;
@@ -69,10 +71,6 @@
 }
 
 
-.autocomplete:hover i, .autocomplete:active i {
-	color: black;
-}
-	
 	
 	
 	
