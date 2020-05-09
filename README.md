@@ -18,11 +18,11 @@ import Autocomplete from 'autocomplete';
 var state = {autocomplete: "" }
 	
 var change = (obj, next)=>{
-		this.setState(obj, next);
+	this.setState(obj, next);
 }	
 	
 var suggestions = value=>{
-	  return fetch(`http://example.php?value=${value}`, {method:"GET"});
+	return fetch(`http://example.php?value=${value}`, {method:"GET"});
 }
 		
 <Autocomplete name="autocomplete" value={state.autocomplete} setState={change} getSuggestions={suggestions} />
