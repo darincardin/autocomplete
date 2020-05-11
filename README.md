@@ -7,7 +7,7 @@ This library provides an autocomplete widget for in your app.
 
 Library can be installed by adding this line to package.json dependancies:
 ```js
-"autocomplete": "darincardin/autocomplete#1.1.4",
+"autocomplete": "darincardin/autocomplete",
 ```
 
 The widget can then be included in the project like this:
