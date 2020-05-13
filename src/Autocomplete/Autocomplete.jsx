@@ -46,7 +46,7 @@ class Autocomplete extends React.Component{
 		return (
 			<div className="autocomplete" >
 				<div className="input" >
-					<input name={this.props.name} autoComplete="off" placeholder="Search..." className='form-control' type="text" value={this.props.value} onChange={this.onChange}/>
+					<input autoComplete="off" name={this.props.name}  placeholder="Search..." className='form-control' type="text" value={this.props.value} onChange={this.onChange}/>
 					<i className="glyphicon glyphicon-search"></i>  
 					
 
