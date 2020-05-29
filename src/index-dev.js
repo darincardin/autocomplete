@@ -37,7 +37,7 @@ var getOrders = value =>{
 	return fetch(`http://api.darincardin.com/php/orders/controllers/search.php?value=${value}`, {method:"GET"})
 	.then(res => res.json())
 	.then( res =>{
-		res.data = res.data.map(i =>new Orders(i.fName, i.lName));
+		res.data = res.data.map(i =>i.fName);
 		return res
 	})
 

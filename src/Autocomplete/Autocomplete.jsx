@@ -28,6 +28,7 @@ class Autocomplete extends React.Component{
 		
 		this.cancel = setTimeout( ()=>{
 			this.props.getSuggestions(value).then(res =>{
+				debugger;
 				this.setState({ suggestions: res.data, loading:false })
 			})
 			.catch( err =>{
@@ -58,7 +59,7 @@ class Autocomplete extends React.Component{
 							<table>
 								<tbody>
 									{ this.state.suggestions.map( (r, i) =>  
-										<tr key={i} onClick={ ()=>this.onSelect(r) }  ><td>{r.display}</td></tr>
+										<tr key={i} onClick={ ()=>this.onSelect(r) }  ><td>{r}</td></tr>
 									)}
 								</tbody>
 							</table>
