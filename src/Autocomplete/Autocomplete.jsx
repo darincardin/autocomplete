@@ -28,7 +28,6 @@ class Autocomplete extends React.Component{
 		
 		this.cancel = setTimeout( ()=>{
 			this.props.getSuggestions(value).then(res =>{
-				debugger;
 				this.setState({ suggestions: res.data, loading:false })
 			})
 			.catch( err =>{
