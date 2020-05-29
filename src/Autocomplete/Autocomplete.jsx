@@ -27,14 +27,12 @@ class Autocomplete extends React.Component{
 		if(this.cancel) clearTimeout(this.cancel);
 		
 		this.cancel = setTimeout( ()=>{
-			this.props.getSuggestions(value).then(res => res.json())
-			.then(res =>{
+			this.props.getSuggestions(value).then(res =>{
 				this.setState({ suggestions: res.data, loading:false })
 			})
 			.catch( err =>{
 				this.setState({ suggestions: ["An error occurred."], loading:false })
 			})	
-
 		}, 300 );
 	}
 	
@@ -60,7 +58,7 @@ class Autocomplete extends React.Component{
 							<table>
 								<tbody>
 									{ this.state.suggestions.map( (r, i) =>  
-										<tr key={i} onClick={ ()=>this.onSelect(r) }  ><td>{r}</td></tr>
+										<tr key={i} onClick={ ()=>this.onSelect(r) }  ><td>{r.display}</td></tr>
 									)}
 								</tbody>
 							</table>
